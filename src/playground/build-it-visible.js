@@ -1,65 +1,44 @@
+class VisibilityToggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
 
-class VisibilityToggle extends React.Component{
-    constructor(props){
-        super(props);
-        this.handleToggleVisibility = this.handleToggleVisibility.bind(this)
-
-        this.state={
-            visibility:false,
-            content:''
-        }
-
+    this.state = {
+      visibility: false,
+      content: "",
+    };
+  }
+  handleToggleVisibility() {
+    if (this.state.visibility) {
+      this.setState((prevState) => {
+        return {
+          visibility: !prevState.visibility,
+          content: "",
+        };
+      });
+    } else {
+      this.setState((prevState) => {
+        return {
+          visibility: !prevState.visibility,
+          content: "Some Data to show",
+        };
+      });
     }
-    handleToggleVisibility(){
+  }
 
-       if(this.state.visibility){
-
-        this.setState((prevState)=>{
-            return{
-                visibility:!prevState.visibility,
-                content:''
-                
-            }
-
-        });
-    
-    }
-    else{
-        this.setState((prevState)=>{
-            return{
-                visibility:!prevState.visibility,
-                content:'Some Data to show'
-                
-            }
-
-        });
-
-
-
-    }
-
-
-
-
-       }
-
-           
-
-
-    render(){
-        return(
-        <div>
-            <h1>Visibility Toggle</h1>
-            <button onClick={this.handleToggleVisibility}>{this.state.visibility?'Hide Details':'Show Details'}</button>
-            <p>{this.state.content}</p>
-        
-        
-        </div>
+  render() {
+    return (
+      <div>
+        <h1>Visibility Toggle</h1>
+        <button onClick={this.handleToggleVisibility}>
+          {this.state.visibility ? "Hide Details" : "Show Details"}
+        </button>
+        <p>{this.state.content}</p>
+      </div>
     );
-    }
+  }
 }
-ReactDOM.render(<VisibilityToggle />,document.getElementById('app'))
-
+ReactDOM.render(<VisibilityToggle />, document.getElementById("app"));
 
 // const buttonDetails =()=>{
 //     return 'show Details';
@@ -70,17 +49,16 @@ ReactDOM.render(<VisibilityToggle />,document.getElementById('app'))
 //    if(visibility==true) {
 //        visibility=false
 //        app.content='';
-      
+
 //     }
 
-       
 //    else {
-      
+
 //        visibility=true;
 //        app.content='Some data to show'}
-       
+
 //     render();
-   
+
 // }
 // const app = {
 //     title:'Visiility Toggle',
@@ -99,7 +77,6 @@ ReactDOM.render(<VisibilityToggle />,document.getElementById('app'))
 //     );
 //     ReactDOM.render(template,approot);
 // }
-
 
 // const approot = document.getElementById('app');
 
